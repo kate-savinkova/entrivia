@@ -74,7 +74,7 @@ function StatusCards() {
 
 function PeopleTable() {
   return (
-    <Table responsive>
+    <Table responsive className="peopleTable">
       <thead>
         <tr>
           <th>Фото</th>

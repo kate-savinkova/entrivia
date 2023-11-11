@@ -1,4 +1,9 @@
-.Title {
+/* table */
+.peopleTable thead {
+  background-color: #F0F5FE;
+}
+
+Title {
   margin-top:20px;
   font-family: 'Montserrat', sans-serif;
 }
