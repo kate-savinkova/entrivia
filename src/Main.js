@@ -1,6 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import React from 'react';
-import { Col, Row, Container, Table } from 'react-bootstrap';
+import { Col, Row, Container, Table, Stack, ListGroup } from 'react-bootstrap';
 import './Main.css';
 import message from './images/message.svg';
 import person_1 from './images/people/person_1.svg';
@@ -12,49 +12,67 @@ import person_6 from './images/people/person_6.svg';
 import person_7 from './images/people/person_7.svg';
 import person_8 from './images/people/person_8.svg';
 
-function BgColorExample() {
+function LastActivity() {
   return (
     <Container>
       <Row>
-        <Col>
-          <Card >
-            <Card.Body>
-              <Card.Title>Назначено</Card.Title>
-              <Card.Text>10 задач</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col>
-          <Card>
-            <Card.Body>
-              <Card.Title>Завершены</Card.Title>
-              <Card.Text>2 задачи</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col>
-          <Card>
-            <Card.Body>
-              <Card.Title>В процессе</Card.Title>
-              <Card.Text>4 задачи</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-        <Col>
-          <Card>
-            <Card.Body>
-              <Card.Title>Ожидают начала</Card.Title>
-              <Card.Text>4 задачи</Card.Text>
-            </Card.Body>
-          </Card>
+        <Col md="12">
+            <Card>
+              <Card.Title>Timeline</Card.Title>
+              <ListGroup defaultActiveKey="#link1" className="timeline">
+                <ListGroup.Item action href="#link1" className="event" data-date="12:30 - 1:00pm">
+                  <h3>Registration</h3>
+                  <p>Get here on time, it's first come first serve. Be late, get turned away.</p>
+                </ListGroup.Item>
+                <ListGroup.Item action href="#link2" className="event" data-date="2:30 - 4:00pm">
+                  <h3>Registration</h3>
+                  <p>Get here on time, it's first come first serve. Be late, get turned away.</p>
+                </ListGroup.Item>
+                <ListGroup.Item action href="#link3" className="event" data-date="5:00 - 8:00pm">
+                  <h3>Registration</h3>
+                  <p>Get here on time, it's first come first serve. Be late, get turned away.</p>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card>
         </Col>
       </Row>
     </Container>
+  )
+}
+
+function StatusCards() {
+  return (
+    <Stack direction="horizontal" gap={2}>
+      <Card >
+        <Card.Body>
+          <Card.Title>Назначено</Card.Title>
+          <Card.Text>10 задач</Card.Text>
+        </Card.Body>
+      </Card>
+      <Card>
+        <Card.Body>
+          <Card.Title>Завершены</Card.Title>
+          <Card.Text>2 задачи</Card.Text>
+        </Card.Body>
+      </Card>
+      <Card>
+        <Card.Body>
+          <Card.Title>В процессе</Card.Title>
+          <Card.Text>4 задачи</Card.Text>
+        </Card.Body>
+      </Card>
+      <Card>
+        <Card.Body>
+          <Card.Title>Ожидают начала</Card.Title>
+          <Card.Text>4 задачи</Card.Text>
+        </Card.Body>
+      </Card>
+    </Stack>
   );
 }
 
 
-function ResponsiveExample() {
+function PeopleTable() {
   return (
     <Table responsive>
       <thead>
@@ -137,6 +155,26 @@ function ResponsiveExample() {
   );
 }
 
-export default ResponsiveExample;
+function MainPage() {
+  return (
+    <Container>
+      <Row>
+        <Col xs="auto">
+          <Row>
+            <StatusCards />
+          </Row>
+          <Row>
+          </Row>
+          <Row>
+            <PeopleTable />
+          </Row>
+        </Col>
+        <Col>
+          <LastActivity />
+        </Col>
+      </Row>
+    </Container>
+  )
+}
 
-export {ResponsiveExample, BgColorExample};
+export {StatusCards, PeopleTable, MainPage};
